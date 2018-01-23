@@ -5,11 +5,11 @@ include Math
 
 describe Account do
   let(:person) { instance_double('Person', name: 'Jade') }
+  subject {described_class.new({owner: person})}
 
-  before do
+  #before do
     # @subject = Account.new('holger', 1000)
-    subject {described_class.new({owner: person})}
-  end
+#  end
 
   it 'expacted to have a owner' do
     expect(subject.owner).to eq person
