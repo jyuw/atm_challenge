@@ -1,5 +1,7 @@
 # Person class
 require 'account.rb'
+require 'atm.rb'
+
 class Person
   attr_accessor :name, :cash, :account
 
@@ -13,6 +15,10 @@ class Person
     @account = Account.new(owner: self)
   end
 
+  def deposit(attrs = {})
+    @account.nil? ? no_account : deposit_funds(attrs)
+  end
+
 private
 
   def set_name(obj)
@@ -23,5 +29,13 @@ private
     raise 'A name is required'
   end
 
+  def deposit_funds(amount)
+    @cash -= amount
+    @account.balance += amount
+  end
+
+  def no_account
+    raise 'No account present'
+  end
 
 end
