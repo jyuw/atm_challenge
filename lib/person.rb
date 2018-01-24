@@ -19,6 +19,10 @@ class Person
     @account.nil? ? no_account : deposit_funds(attrs)
   end
 
+  def withdraw(attrs = {})
+    attrs[:atm].withdraw(attrs[:amount], attrs[:pin], attrs[:account])
+  end
+
 private
 
   def set_name(obj)
