@@ -1,4 +1,3 @@
-# Person class
 require 'account.rb'
 require 'atm.rb'
 
@@ -23,13 +22,13 @@ class Person
     attrs[:atm].nil? ? no_atm : withdraw_funds(attrs)
   end
 
-private
+  private
 
   def set_name(obj)
-    obj == nil ? missing_name : @name = obj
+    obj.nil? ? missing_name : @name = obj
   end
 
-  def missing_name()
+  def missing_name
     raise 'A name is required'
   end
 
@@ -50,5 +49,4 @@ private
     @cash += attrs[:amount]
     attrs[:atm].withdraw(attrs[:amount], attrs[:pin], attrs[:account])
   end
-
 end
