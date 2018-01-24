@@ -20,7 +20,7 @@ class Person
   end
 
   def withdraw(attrs = {})
-    attrs[:atm].withdraw(attrs[:amount], attrs[:pin], attrs[:account])
+    attrs[:atm].nil? ? no_atm : withdraw_funds(attrs)
   end
 
 private
@@ -40,6 +40,15 @@ private
 
   def no_account
     raise 'No account present'
+  end
+
+  def no_atm
+    raise 'An ATM is required'
+  end
+
+  def withdraw_funds(attrs = {})
+    @cash += attrs[:amount]
+    attrs[:atm].withdraw(attrs[:amount], attrs[:pin], attrs[:account])
   end
 
 end
