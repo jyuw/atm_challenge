@@ -32,4 +32,9 @@ describe Account do
     subject.deactivate
     expect(subject.account_status).to eq :inactive
   end
+
+  it 'is expected to raise error if owner is missing' do
+    expect { described_class.new }.to raise_error('An owner is required')
+  end
+
 end
