@@ -42,11 +42,11 @@ Next, create an ATM
 `atm = Atm.new `
 
 Pin and card expiry and be returned using:
+```
+holger.account.pin_code
 
-`holger.account.pin_code
-
-holger.account.exp_date`
-
+holger.account.exp_date
+```
 Next, deposit your hard-earned cash into the system
 
  `holger.deposit(100)`
