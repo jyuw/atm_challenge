@@ -1,6 +1,7 @@
 require 'date'
-require 'person.rb'
-require 'atm.rb'
+require './lib/person.rb'
+require './lib/atm.rb'
+require 'pry'
 
 class Account
   attr_accessor :balance, :account_status, :owner

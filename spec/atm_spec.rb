@@ -40,6 +40,13 @@ describe Atm do
     expect(subject.withdraw(105, '1234', account)).to eq expected_output
   end
 
+  it 'reject withdraw if amount is not divisible by 5' do
+    expected_output =  { status: false,
+                       message: 'amount should be divisible by 5',
+                       date: Date.today }
+      expect(subject.withdraw(7, '1234', account)).to eq expected_output
+  end
+
   it 'rejects withdraw if ATM has insufficient funds' do
     subject.funds = 50
     expected_output = {

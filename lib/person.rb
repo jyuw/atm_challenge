@@ -1,5 +1,5 @@
-require 'account.rb'
-require 'atm.rb'
+require './lib/account.rb'
+require './lib/atm.rb'
 
 class Person
   attr_accessor :name, :cash, :account
@@ -12,6 +12,10 @@ class Person
 
   def create_account()
     @account = Account.new(owner: self)
+  end
+
+  def go_to_work(amount)
+    @cash += amount
   end
 
   def deposit(attrs = {})
