@@ -12,17 +12,17 @@ class Atm
   def withdraw(amount, pin_code, account)
     case
     when incorrect_pin?(pin_code, account.pin_code)
-      { status: false, message: 'wrong pin', date: Date.today }
+      { status: false, message: 'wrong pin', date: Date.today.strftime('%m/%y') }
     when card_expired?(account.exp_date)
-      { status: false, message: 'card expired', date: Date.today }
+      { status: false, message: 'card expired', date: Date.today.strftime('%m/%y') }
     when account_status?(account.account_status)
-      { status: false, message: 'Account disabled', date: Date.today}
+      { status: false, message: 'Account disabled', date: Date.today.strftime('%m/%y')}
     when indivisible_amount?(amount)
-      { status: false, message: 'amount should be divisible by 5', date: Date.today }
+      { status: false, message: 'amount should be divisible by 5', date: Date.today.strftime('%m/%y') }
     when insufficient_funds_in_account?(amount, account)
-      { status: false, message: 'insufficient funds in account', date: Date.today }
+      { status: false, message: 'insufficient funds in account', date: Date.today.strftime('%m/%y') }
     when insufficient_funds_in_atm?(amount)
-      { status: false, message: 'insufficient funds in ATM', date: Date.today }
+      { status: false, message: 'insufficient funds in ATM', date: Date.today.strftime('%m/%y') }
     else
       perform_transaction(amount, account)
     end

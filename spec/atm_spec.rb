@@ -35,7 +35,7 @@ describe Atm do
     expected_output = {
       status: false,
       message: 'insufficient funds in account',
-      date: Date.today
+      date: Date.today.strftime('%m/%y')
     }
     expect(subject.withdraw(105, '1234', account)).to eq expected_output
   end
@@ -43,7 +43,7 @@ describe Atm do
   it 'reject withdraw if amount is not divisible by 5' do
     expected_output =  { status: false,
                        message: 'amount should be divisible by 5',
-                       date: Date.today }
+                       date: Date.today.strftime('%m/%y') }
       expect(subject.withdraw(7, '1234', account)).to eq expected_output
   end
 
@@ -52,7 +52,7 @@ describe Atm do
     expected_output = {
       status: false,
       message: 'insufficient funds in ATM',
-      date: Date.today
+      date: Date.today.strftime('%m/%y')
     }
     expect(subject.withdraw(100, '1234', account)).to eq expected_output
   end
@@ -61,7 +61,7 @@ describe Atm do
     expected_output = {
       status: false,
       message: 'wrong pin',
-      date: Date.today
+      date: Date.today.strftime('%m/%y')
     }
     expect(subject.withdraw(50, '9999', account)).to eq expected_output
   end
@@ -71,7 +71,7 @@ describe Atm do
     expected_output = {
       status: false,
       message: 'card expired',
-      date: Date.today
+      date: Date.today.strftime('%m/%y')
     }
     expect(subject.withdraw(6, '1234', account)).to eq expected_output
   end
@@ -81,7 +81,7 @@ describe Atm do
     expected_output = {
       status: false,
       message: 'Account disabled',
-      date: Date.today
+      date: Date.today.strftime('%m/%y')
     }
     expect(subject.withdraw(10, '1234', account)).to eq expected_output
   end
