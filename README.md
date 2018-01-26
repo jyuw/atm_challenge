@@ -37,10 +37,8 @@ Pin and card expiry and be returned using:
 `holger.account.pin_code
 holger.account.exp_date`
 
-holger.deposit(100)
-atm.withdraw(50, 1279, holger.account)
-
-holger.account.balance
-
-holger.go_to_work(100)
-``` 
+Next, deposit your hard-earned cash into the system
+ `holger.deposit(100)`
+ 
+It can then be withdrawn by passing in the amount to be withdrawn, the pin code, and your name.account
+`atm.withdraw(50, 1279, holger.account)` 
