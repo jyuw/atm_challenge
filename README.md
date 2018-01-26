@@ -14,7 +14,6 @@ The atm assumes the following parameters:
         - with a card status that is active (Not report stolen or lost)
     - The person attempting the withdrawal has sufficient funds on his account
 * There are only $5, $10 and $20 bills in the ATM. Withdrawals for amounts not divisible by 5 must be rejected.
-* Upon a successful withdrawal the system should return a receipt with information about the date, amount and bills that was dispatched. (The receipt should be presented in the form of a Hash.
 
 ## Usage
 After cloning the repo, run by loading the person.rb file into IRB. This will load all required files as well.
@@ -54,3 +53,5 @@ Next, deposit your hard-earned cash into the system
 It can then be withdrawn by passing in the amount to be withdrawn, the pin code, and your name.account
 
 `atm.withdraw(50, 1279, holger.account)` 
+
+When the withdraw command is run, a message will print out letting the user know whether or not the transaction was completed successfully. If not, an error message will allow the user to know where the problem occurred. 
